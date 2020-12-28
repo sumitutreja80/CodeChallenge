@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavouriteCities" representedClassName="FavouriteCities" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Transformable"/>
+    </entity>
+    <entity name="WClouds" representedClassName="WClouds" syncable="YES" codeGenerationType="class">
+        <attribute name="all" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="weathercity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWeatherCity" inverseName="clouds" inverseEntity="WWeatherCity"/>
+    </entity>
+    <entity name="WCoord" representedClassName="WCoord" syncable="YES" codeGenerationType="class">
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weathercity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWeatherCity" inverseName="coord" inverseEntity="WWeatherCity"/>
+    </entity>
+    <entity name="WMain" representedClassName="WMain" syncable="YES" codeGenerationType="class">
+        <attribute name="feelsLike" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tempMax" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tempMin" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weathercity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWeatherCity" inverseName="main" inverseEntity="WWeatherCity"/>
+    </entity>
+    <entity name="WSys" representedClassName="WSys" syncable="YES" codeGenerationType="class">
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sunrise" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sunset" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="weathercity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWeatherCity" inverseName="sys" inverseEntity="WWeatherCity"/>
+    </entity>
+    <entity name="WWeather" representedClassName="WWeather" syncable="YES" codeGenerationType="class">
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="main" optional="YES" attributeType="String"/>
+        <attribute name="weatherDescription" optional="YES" attributeType="String"/>
+        <relationship name="weathercity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWeatherCity" inverseName="weather" inverseEntity="WWeatherCity"/>
+    </entity>
+    <entity name="WWeatherCity" representedClassName="WWeatherCity" syncable="YES" codeGenerationType="class">
+        <attribute name="base" optional="YES" attributeType="String"/>
+        <attribute name="cod" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timezone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="visibility" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="clouds" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WClouds" inverseName="weathercity" inverseEntity="WClouds"/>
+        <relationship name="coord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCoord" inverseName="weathercity" inverseEntity="WCoord"/>
+        <relationship name="main" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WMain" inverseName="weathercity" inverseEntity="WMain"/>
+        <relationship name="sys" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WSys" inverseName="weathercity" inverseEntity="WSys"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWeather" inverseName="weathercity" inverseEntity="WWeather"/>
+        <relationship name="wind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWind" inverseName="weathercity" inverseEntity="WWind"/>
+    </entity>
+    <entity name="WWind" representedClassName="WWind" syncable="YES" codeGenerationType="class">
+        <attribute name="deg" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weathercity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WWeatherCity" inverseName="wind" inverseEntity="WWeatherCity"/>
+    </entity>
+    <elements>
+        <element name="FavouriteCities" positionX="36" positionY="153" width="128" height="58"/>
+        <element name="WClouds" positionX="0" positionY="108" width="128" height="73"/>
+        <element name="WCoord" positionX="-9" positionY="99" width="128" height="88"/>
+        <element name="WMain" positionX="-36" positionY="63" width="128" height="148"/>
+        <element name="WSys" positionX="18" positionY="117" width="128" height="133"/>
+        <element name="WWeather" positionX="-54" positionY="45" width="128" height="118"/>
+        <element name="WWeatherCity" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="WWind" positionX="-18" positionY="99" width="128" height="88"/>
+    </elements>
+</model>
